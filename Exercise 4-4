@@ -1,0 +1,121 @@
+#include <iostream>
+#include <string>
+
+
+ enum class degreeType { none, associate, bachelor, professional, master, doctor};
+
+
+int main()
+{
+   
+   int age;
+   char gender = 'f';
+   degreeType degree;
+   bool isMarried = true;
+   bool speaksHindi = true;
+   bool speaksUrdu = true;
+   
+   
+   std::cout << "Enter your age: ";
+   std::cin >> age;
+   
+   if(age > 21 && age < 35){
+       std::cout << "That is one step." << std::endl;
+   }else{
+       std::cout << "Sorry." << std::endl;
+       return 0;
+   }
+   
+   std::cout << "Enter your gender, m or f: ";
+   std::cin >> gender;
+   
+   gender = std::tolower(gender);
+   
+   if(gender == 'f'){
+       std::cout << "One step closer." << std::endl;
+   }else{
+       std::cout << "Maybe next time." << std::endl;
+       return 0;
+   }
+       
+       
+   
+   std::cout << "What is your highest degree?" << std::endl;
+   std::cout << "Possible values are: " << std::endl;
+   std::cout << "n: none, a: associate, b: bachelor, p: professional, m: master, d: doctor" << std::endl;
+   char degreeChar;
+   std::cin >> degreeChar;
+   
+   switch(degreeChar){
+       
+    case 'n':
+        degree = degreeType::none;
+        break;
+    case 'a':
+        degree = degreeType::associate;
+        break;
+    case 'b':
+        degree = degreeType::bachelor;
+        break;
+    case 'p':
+        degree  = degreeType::professional;
+        break;
+    case 'm':
+        degree = degreeType::master;
+        break;
+    case 'd':
+        degree = degreeType::doctor;
+        break;
+    default:
+        std::cout << "Entered incorrect." << std::endl;
+        break;
+   }
+   
+   char y_n;
+   std::cout << "Married (y/n): ";
+   std::cin >> y_n;
+   
+   if(y_n == 'y' || y_n == 'Y'){
+       isMarried = true;
+   }else if(y_n == 'n' || y_n == 'N'){
+       isMarried = false;
+   }
+   
+   std::cout << "Do you speak Hindi(y/n): ";
+   std::cin >> y_n;
+    
+    if(y_n == 'y' || y_n == 'Y'){
+        speaksHindi = true;
+    }else{
+        speaksHindi = false;
+    }
+   
+   std::cout << "Do you speak Urdu(true or false): ";
+   std::cin >> y_n;
+   
+   if(y_n == 'y' || y_n == 'Y'){
+       speaksUrdu = true;
+   }else{
+       speaksUrdu = false;
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  if( (age > 21 && age < 35) && ( gender == 'f') && ( isMarried != true) && ( degree == degreeType::bachelor || degree == degreeType::master) && ( speaksHindi || speaksUrdu) ){
+        std::cout << "You are hired!" << std::endl;
+        
+   }else{
+       std::cout << "You are not qualified." << std::endl;
+   }
+               
+    
+ return 0;   
+}
